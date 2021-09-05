@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/messagelistapp/static/css/main.501a1286.chunk.css",
+    "main.css": "/messagelistapp/static/css/main.679461d4.chunk.css",
     "main.js": "/messagelistapp/static/js/main.431626fd.chunk.js",
     "main.js.map": "/messagelistapp/static/js/main.431626fd.chunk.js.map",
     "runtime-main.js": "/messagelistapp/static/js/runtime-main.dd7a1ce7.js",
@@ -10,13 +10,13 @@
     "static/js/3.d2e91b65.chunk.js": "/messagelistapp/static/js/3.d2e91b65.chunk.js",
     "static/js/3.d2e91b65.chunk.js.map": "/messagelistapp/static/js/3.d2e91b65.chunk.js.map",
     "index.html": "/messagelistapp/index.html",
-    "static/css/main.501a1286.chunk.css.map": "/messagelistapp/static/css/main.501a1286.chunk.css.map",
+    "static/css/main.679461d4.chunk.css.map": "/messagelistapp/static/css/main.679461d4.chunk.css.map",
     "static/js/2.074a852f.chunk.js.LICENSE.txt": "/messagelistapp/static/js/2.074a852f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dd7a1ce7.js",
     "static/js/2.074a852f.chunk.js",
-    "static/css/main.501a1286.chunk.css",
+    "static/css/main.679461d4.chunk.css",
     "static/js/main.431626fd.chunk.js"
   ]
 }
