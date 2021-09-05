@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { BASE_URL } from "../../Scripts/Constants";
 import EditModal from "./EditModal";
-
+import { DateUtils } from "./../../Scripts/DateUtils"
 const MessageCard = (props) => {
   let startTouch = 0;
   const {
@@ -17,25 +17,11 @@ const MessageCard = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [ isDelete, setIsDelete ] = useState(false);
 
-  const getUpdatedDays = (date) => {
-      let days = (new Date().getTime() - date.getTime())/ (60*60*24*1000)
-      if(days / 365 > 0) {
-          return Math.round(days / 365) +" years ago";
-      } else {
-          if(365 - days > 0) {
-              return (365 - days) + " days ago"
-          } else {
-              return (new Date().getTime() - date.getTime())/ (60*60*1000) + " hours ago"
-          }
-      }
-  }
-
   const toggleModal = (data = null) => {
       if(data) {
-          if(data.hideOnly) {
-              if(isDelete) {
+          if(data?.hideOnly) {
+              isDelete && 
                   setIsDelete(false);
-              }
           } else {
               if(!isDelete) {
                   message.author.name = data.author;
@@ -47,9 +33,8 @@ const MessageCard = (props) => {
           }
       }
       setShowModal(prevState => !prevState);
-      if(showButton) {
-          setShowButton(false);
-      }
+      showButton &&
+        setShowButton(false);
   }
 
   const touchEvent = (evt) => {
@@ -58,10 +43,10 @@ const MessageCard = (props) => {
 
   const touchEndEvent = (evt) => {
       let endTouch = evt.changedTouches[0].screenX;
-      if (endTouch > startTouch + 30) {
+      if (endTouch > startTouch + 60) {
           setShowButton(true);
       } else {
-          if(startTouch > endTouch + 30) {
+          if(startTouch > endTouch + 60) {
               setShowButton(false);
           }
       }
@@ -83,14 +68,14 @@ const MessageCard = (props) => {
             <div className="card-title">
               <h6 className="full-name">{name}</h6>
               <p className="published-date">
-                {getUpdatedDays(new Date(updated))}
+                {DateUtils.getUpdatedDays(new Date(updated))}
               </p>
             </div>
           </div>
           <div className="card-content">{content}</div>
       </div>        
       )
-  }, [props.message])
+  }, [message])
 
   const actionBtnList = [
     {

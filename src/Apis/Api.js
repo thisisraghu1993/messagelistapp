@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {BASE_URL} from "./../Scripts/Constants"
 export default axios.create({
-    baseURL: `http://message-list.appspot.com/messages`
+    baseURL: `${BASE_URL}/messages`
 });

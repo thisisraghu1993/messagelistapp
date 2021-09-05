@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Api from "../Apis/Api";
 import MessageList from "../Components/Shared/MessageList";
 import Toast from "../Components/Shared/Toast";
+import Loader from "../Components/Shared/Loader";
 
 export const Feed = () => {
   const [messageList, setMessageList] = useState([]);
@@ -10,6 +11,7 @@ export const Feed = () => {
     const [offsetHeight, setOffsetHeight] = useState(0);
     const [ showToast, setShowToast ] = useState(false);
     const [ toastDetails, setToastDetails ] = useState({});
+    const [isLoading, setIsLoading ] = useState(true);
     let params = {limit : 10};
     
     if(prevToken) {
@@ -21,21 +23,8 @@ export const Feed = () => {
         checkScrollAndFetchData();
     });
 
-    useEffect(() => {
-        fetchMessages(true);
-    }, []);
 
-    useEffect(() => {
-        let timer;
-        if(showToast) {
-            setTimeout(() => {
-                timer = setShowToast(false)
-            }, 3000);
-        }
-        return () => {
-          clearTimeout(timer)
-        }
-    }, [showToast])
+    
 
     const checkScrollAndFetchData = () => {
         let innerHeight = window.innerHeight;
@@ -56,6 +45,7 @@ export const Feed = () => {
                 }
                 let newMessages = [...messageList, messages];
                 if(isInitialLoad) {
+                    setIsLoading(false)
                     setMessageList(newMessages);
                     params["pageToken"] = pageToken;
                     params["limit"] = 100;
@@ -91,9 +81,28 @@ export const Feed = () => {
         setMessageList(allMessages);
     }
     
+    useEffect(() => {
+        fetchMessages(true);
+    }, []);
+
+    useEffect(() => {
+        let timer;
+        if(showToast) {
+            setTimeout(() => {
+                timer = setShowToast(false)
+            }, 3000);
+        }
+        return () => {
+          clearTimeout(timer)
+        }
+    }, [showToast])
+
   return (
     <section className="feed-section">
-      {messageList?.map((messages, idx) => {
+      {
+          isLoading && <Loader/>
+      }
+      {!isLoading && messageList?.map((messages, idx) => {
         return (
           <MessageList
             messages={messages}
@@ -104,7 +113,7 @@ export const Feed = () => {
         );
       })}
       {
-        showToast ? <Toast {...toastDetails}/> : null 
+        showToast && <Toast {...toastDetails}/> 
       }
     </section>
   );
