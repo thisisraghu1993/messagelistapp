@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+%global-padding {
+  padding: 0 5%;
+  @media (min-width: 768px) {
+    padding: 0 10%;
+  }
+}
+
+@mixin flex-center($pos: flex, $align: center, $justify: unset) {
+  display: $pos;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+/* ---- HEADER ---- */
+
+header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  height: 64px;
+  background: #671cea;
+  @include flex-center();
+  color: white;
+  box-shadow: 1px -3px 9px 2px rgba(0, 0, 0, 0.5);
+  @extend %global-padding;
+  .menu-mobile-icon {
+    margin-right: 15px;
+    font-size: 24px;
+  }
+  .menu-tilte {
+    font-size: 18px;
+  }
+}
+
+/* ---- Feed Section ---- */
+.feed-section {
+  position: relative;
+  display: block;
+  padding: 25px 5%;
+  @media (min-width: 767px) {
+    padding: 40px 10%;
+  }
+}
+
+/* ---- Popup ---- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  @include flex-center($justify: center);
+  .modal-content {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    z-index: 101;
+    padding: 20px;
+    width: 280px;
+    // margin: 0 auto;
+    @media (min-width: 576px) {
+      width: 400px;
+    }
+    @media (min-width: 768px) {
+      padding: 30px;
+      width: 740px;
+    }
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    background: white;
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #666;
+      border-radius: 35px;
+      padding: 3px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      z-index: 1;
+      &:hover {
+        color: #000;
+        background: #f5f5f5;
+      }
+    }
+    .modal-header {
+      position: relative;
+      display: block;
+      margin-bottom: 30px;
+      h2 {
+        font-size: 20px;
+        color: #333;
+        font-weight: 500;
+        @media (min-width: 768px) {
+          font-size: 24px;
+        }
+      }
+    }
+    .modal-body {
+      position: relative;
+      display: block;
+      margin-top: 30px;
+      .input-box {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        input {
+          height: 42px;
+          width: calc(100% - 20px);
+          padding: 0 10px;
+          border-radius: 6px;
+          font-size: 16px;
+          color: #671cea;
+          border: 1px solid #ddd;
+          &:placeholder {
+            color: #c4c4c4;
+          }
+        }
+        textarea {
+          padding: 10px;
+          border-radius: 5px;
+          position: relative;
+          display: block;
+          width: calc(100% - 20px);
+          border: 1px solid #ddd;
+          &::placeholder {
+            color: #c4c4c4;
+          }
+        }
+      }
+    }
+    .modal-footer {
+      position: relative;
+      display: block;
+      text-align: right;
+      margin-top: 20px;
+      button {
+        min-width: 130px;
+        padding: 10px 40px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 35px;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        -ms-border-radius: 35px;
+        -o-border-radius: 35px;
+        color: white;
+        background: #671cea;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+    -webkit-transform: translateX(-40px);
+    -moz-transform: translateX(-40px);
+    -ms-transform: translateX(-40px);
+    -o-transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -o-transform: translateX(0px);
+  }
+}
+
+
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+/* ---- Toast ---- */
+.toast-msg {
+  position: fixed;
+  left: 0%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  overflow: hidden;
+  z-index: 120;
+  width: 100%;
+  animation: fadeinout 2s linear forwards;
+  @media (min-width: 768px) {
+    left: 40%;
+    width: auto;
+  }
+  .success-toast {
+    background-color: green;
+    color: white;
+    padding: 8px;
+  }
+  
+  .delete-toast {
+    background-color: red;
+    color: white;
+    padding: 8px;
+  }
+}
+
+
+/* ---- Card ---- */
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 #00000033;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  &:not(:last-child) {
+    margin-bottom: 15px;
+    @media (min-width: 768px) {
+      margin-bottom: 25px;
+    }
+  }
+  &.card-action {
+    display: grid;
+    grid-template-columns: 40px calc(100% - 40px);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    animation: slideIn 0.3s linear;
+    .wrap-action-btn {
+      position: relative;
+      display: block;
+      height: 100%;
+      background: #f53939;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      transition: all 0.3s ease-in-out;
+      .action-btn {
+        position: relative;
+        color: white;
+        height: 50%;
+        // transform: rotate(180deg);
+        display: grid;
+        justify-items: revert;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        cursor: pointer;
+        &.edit {
+          border-bottom-right-radius: 5px;
+          background: #671cea;
+        }
+        &.delete {
+          border-top-right-radius: 5px;
+          background: #e02900;
+        }
+        .action-text {
+          font-size: 16px;
+          letter-spacing: 0.3px;
+          transform: rotate(270deg);
+        }
+        .rotate-270 {
+          transform: rotate(270deg);
+        }
+        i {
+          transform: rotate(90deg);
+          font-size: 14px;
+        }
+        &.delete {
+          .action-text {
+            transform: rotate(270deg) translate(-3px, -5px);
+          }
+          i {
+            transform: rotate(90deg) translate(-3px);
+          }
+        }
+      }
+    }
+  }
+  .card-body {
+    padding: 20px;
+    cursor: pointer;
+    @media (min-width: 768px) {
+      margin-bottom: 25px;
+    }
+    .card-header {
+      position: relative;
+      display: grid;
+      cursor: pointer;
+      grid-template-columns: 50px calc(100% - 50px);
+      @media (min-width: 768px) {
+        grid-template-columns: 65px calc(100% - 65px);
+      }
+      .card-title {
+        position: relative;
+        display: block;
+        .full-name {
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 0px;
+          @media (min-width: 768px) {
+            font-size: 18px;
+            margin-bottom: 2px;
+          }
+        }
+        .published-date {
+          font-size: 12px;
+          color: #878787;
+        }
+      }
+      .avatar {
+        border-radius: 35px;
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.35);
+        width: 40px;
+        height: 40px;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        -ms-border-radius: 35px;
+        -o-border-radius: 35px;
+        @media (min-width: 768px) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    .card-content {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+      @media (min-width: 768px) {
+        margin-top: 15px;
+        font-size: 16px;
+      }
+    }
+  }
+}
