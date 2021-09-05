@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/messagelistapp/static/css/main.a617e044.chunk.css",
-    "main.js": "/messagelistapp/static/js/main.e9ec2e14.chunk.js",
-    "main.js.map": "/messagelistapp/static/js/main.e9ec2e14.chunk.js.map",
-    "runtime-main.js": "/messagelistapp/static/js/runtime-main.3a4fdd0e.js",
-    "runtime-main.js.map": "/messagelistapp/static/js/runtime-main.3a4fdd0e.js.map",
-    "static/js/2.2e70a702.chunk.js": "/messagelistapp/static/js/2.2e70a702.chunk.js",
-    "static/js/2.2e70a702.chunk.js.map": "/messagelistapp/static/js/2.2e70a702.chunk.js.map",
-    "static/js/3.2d400e52.chunk.js": "/messagelistapp/static/js/3.2d400e52.chunk.js",
-    "static/js/3.2d400e52.chunk.js.map": "/messagelistapp/static/js/3.2d400e52.chunk.js.map",
+    "main.css": "/messagelistapp/static/css/main.11ebe3e8.chunk.css",
+    "main.js": "/messagelistapp/static/js/main.82a4ce85.chunk.js",
+    "main.js.map": "/messagelistapp/static/js/main.82a4ce85.chunk.js.map",
+    "runtime-main.js": "/messagelistapp/static/js/runtime-main.dd7a1ce7.js",
+    "runtime-main.js.map": "/messagelistapp/static/js/runtime-main.dd7a1ce7.js.map",
+    "static/js/2.074a852f.chunk.js": "/messagelistapp/static/js/2.074a852f.chunk.js",
+    "static/js/2.074a852f.chunk.js.map": "/messagelistapp/static/js/2.074a852f.chunk.js.map",
+    "static/js/3.d2e91b65.chunk.js": "/messagelistapp/static/js/3.d2e91b65.chunk.js",
+    "static/js/3.d2e91b65.chunk.js.map": "/messagelistapp/static/js/3.d2e91b65.chunk.js.map",
     "index.html": "/messagelistapp/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/messagelistapp/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.2e70a702.chunk.js.LICENSE.txt": "/messagelistapp/static/js/2.2e70a702.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/messagelistapp/static/media/logo.6ce24c58.svg"
+    "static/css/main.11ebe3e8.chunk.css.map": "/messagelistapp/static/css/main.11ebe3e8.chunk.css.map",
+    "static/js/2.074a852f.chunk.js.LICENSE.txt": "/messagelistapp/static/js/2.074a852f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3a4fdd0e.js",
-    "static/js/2.2e70a702.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.e9ec2e14.chunk.js"
+    "static/js/runtime-main.dd7a1ce7.js",
+    "static/js/2.074a852f.chunk.js",
+    "static/css/main.11ebe3e8.chunk.css",
+    "static/js/main.82a4ce85.chunk.js"
   ]
 }
